@@ -1,0 +1,5 @@
+.main-content {
+    min-height: calc(100vh - 100px);
+    /* min-height: calc(100vh - 60px - 60px); */
+    /* 100px es la altura del encabezado y el pie de página */
+}

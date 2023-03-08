@@ -1,0 +1,300 @@
+<!-- <div class="container mt-4">
+    <div class="card">
+      <br>
+  
+      <div class="text-align: center; mb-3">
+        <button onclick="mostrarTabla1()" pButton pRipple type="button" icon="pi pi-bell"
+          class="p-button-rounded p-button-warning p-button-text"> <span style="marginLeft: 8px">Solicitudes
+            Recibitas</span>
+        </button>
+  
+   
+        <button onclick="mostrarTabla2()" (click)="listarsolicitudespr(1,1)"  pButton pRipple type="button" icon="pi pi-send"
+          class="p-button-rounded p-button-sm p-button-text"><span style="marginLeft: 8px">Solicitudes Enviadas</span>
+        </button>
+      </div>
+  
+      <div id="tabla1">
+        <h2 align="center">Listado de solicitudes Resividas</h2>
+        <div class="text-align: center; mb-3">
+          <button (click)="listarsolicitudesp(1,1)" pButton pRipple type="button" icon="pi pi-clock"
+            class="p-button-rounded p-button-warning p-button-text"> <span style="marginLeft: 8px">Pendientes</span>
+          </button>
+          <button (click)="listarsolicitudesa(1,1)" pButton pRipple type="button" icon="pi pi-check"
+            class="p-button-rounded p-button-success p-button-text"><span style="marginLeft: 8px">Aceptadas</span>
+          </button>
+          <button (click)="listarsolicitudesr(1,1)" pButton pRipple type="button" icon="pi pi-times"
+            class="p-button-rounded p-button-sm p-button-danger p-button-text"><span
+              style="marginLeft: 8px">Rechazadas</span></button> -->
+  
+        <!-- </div>
+        <p-table [value]="solicitudes" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+          [tableStyle]="{'min-width': '50rem'}"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [rowsPerPageOptions]="[10,25,50]">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="text-align: center; width:25% ">solicitante</th>
+              <th style="text-align: center; width:25%">Nombre de animal</th>
+              <th style="text-align: center; width:25%">Tipo de pago</th>
+              <th style="text-align: center; width:25%">Comentario</th>
+              <th style="text-align: center; width:25%">Fecha</th>
+              <th style="text-align: center; width:25%">Inspecionar</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-solicitudes>
+            <tr>
+              <td style="text-align: center;">
+                <img
+                  [src]="solicitudes.persona.foto ? 'data:image/jpeg;base64,' +solicitudes.persona.foto: '../../../../assets/img/fotonull.png'"
+                  alt="img-avatar" height="70px">
+                <div>{{solicitudes.persona.nombres}}</div>
+              </td>
+              <td style="text-align: center;">{{solicitudes.animal.nombre}}</td>
+              <td style="text-align: center;">{{solicitudes.tipopago}}</td>
+              <td>{{solicitudes.comentario}}</td>
+              <td>{{solicitudes.fecha | date: 'dd/MM/yyyy'}}</td>
+              <td style="text-align: center;"> <button pButton pRipple type="button" icon="pi pi-user"
+                  class="p-button-rounded p-button-info p-button-text"></button></td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+  
+      <div id="tabla2">
+        <h2 align="center">Listado de solicitudes Enviadas</h2>
+        <div class="text-align: center; mb-3">
+          <button (click)="listarsolicitudespr(1,1)" pButton pRipple type="button" icon="pi pi-clock"
+            class="p-button-rounded p-button-warning p-button-text"> <span style="marginLeft: 8px">Pendientes</span>
+          </button>
+          <button (click)="listarsolicitudesar(1,1)" pButton pRipple type="button" icon="pi pi-check"
+            class="p-button-rounded p-button-success p-button-text"><span style="marginLeft: 8px">Aceptadas</span>
+          </button>
+          <button (click)="listarsolicitudesrr(1,1)" pButton pRipple type="button" icon="pi pi-times"
+            class="p-button-rounded p-button-sm p-button-danger p-button-text"><span
+              style="marginLeft: 8px">Rechazadas</span></button> -->
+      
+<!--   
+        </div>
+        <p-table [value]="solicitudesr" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+          [tableStyle]="{'min-width': '50rem'}"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [rowsPerPageOptions]="[10,25,50]">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="text-align: center; width:25% ">Animal Solicitado</th>
+              <th style="text-align: center; width:25%">Nombre del Dueño</th>
+              <th style="text-align: center; width:25%">Tipo de pago</th>
+              <th style="text-align: center; width:25%">Comentario</th>
+              <th style="text-align: center; width:25%">Fecha</th>
+              <th style="text-align: center; width:25%">Inspecionar</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-solicitudesr>
+            <tr>
+              <td style="text-align: center;">
+                <img
+                  [src]="solicitudesr.animal.foto ? 'data:image/jpeg;base64,' +solicitudesr.animal.foto: '../../../../assets/img/fotonull.png'"
+                  alt="img-avatar" height="70px">
+                  <div>{{solicitudesr.animal.nombre}}</div>
+               
+              </td>
+              <td style="text-align: center;">{{solicitudesr.persona.nombres}}</td>
+              <td style="text-align: center;">{{solicitudesr.tipopago}}</td>
+              <td>{{solicitudesr.comentario}}</td>
+              <td>{{solicitudesr.fecha | date: 'dd/MM/yyyy'}}</td>
+              <td style="text-align: center;"> <button pButton pRipple type="button" icon="pi pi-user"
+                  class="p-button-rounded p-button-info p-button-text"></button></td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+  
+  
+    </div>
+  </div> -->
+  
+  
+  
+  <!-- 
+  <body><div class="content">
+      <div class="container">
+      
+        <div class="row_container">
+  
+  
+        <div class="row">
+          <div class="text">
+          This is item 1
+          </div>
+          <div class="button cancel"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
+                  <div class="button check"><i class="fa fa-check fa-2x" aria-hidden="true"></i></div>
+        </div>
+     
+        </div>
+      </div>
+      </div></body>
+   -->
+  
+  
+  <!-- 
+  
+      <button type="" class="btn_reaccion">
+          <span>Reaccionar</span>
+          <div class="reacciones">
+              <div class="reaccion">
+  
+  
+  
+                  <main>
+                      <header>
+                          <h2>Notifications</h2>
+                      </header>
+              
+                      <div class="content">
+  
+  
+                        <div class="line"></div>
+  
+  
+                  
+                        <div class="box">
+                          <div class="circle"></div>
+                          <div class="info">
+                            <time datetime="9:24">9:24 AM</time>
+                            <p><Strong>Jhon Walker</Strong> posted a photo on your wall</p>
+                          </div>
+                    
+                      </div>
+                        <div class="box">
+                          <div class="circle"></div>
+                          <div class="info">
+                            <time datetime="8:29">8:29 AM</time>
+                            <p><Strong>Alice Parker</Strong> commented on your last post</p>
+                          </div>
+                        </div>
+                        <div class="box">
+                          <div class="circle"></div>
+                          <div class="info">
+                            <time datetime="">Yesterday</time>
+                            <p><Strong>Habib Noori</Strong> added you as friend</p>
+                          </div>
+                        </div>
+                      </div>
+                    </main>
+                  <span>Me enoja</span>
+              </div>
+          </div>
+      </button> -->
+
+
+      <div class="container mt-4">
+        <div class="card">
+          <br>
+          <div class="text-align: center; mb-3">
+            <button onclick="mostrarTabla1()" pButton pRipple type="button" icon="pi pi-bell"
+              class="p-button-rounded p-button-warning p-button-text"> <span style="marginLeft: 8px">Solicitudes
+                Recibitas</span>
+            </button>
+            <button onclick="mostrarTabla2()" (click)="listarsolicitudespr(1,1)"  pButton pRipple type="button" icon="pi pi-send"
+              class="p-button-rounded p-button-sm p-button-text"><span style="marginLeft: 8px">Solicitudes Enviadas</span>
+            </button>
+          </div>
+      
+          <div id="tabla1">
+            <h2 align="center">Listado de solicitudes Resividas</h2>
+            <div class="text-align: center; mb-3">
+              <button (click)="listarsolicitudesp(1,1)" pButton pRipple type="button" icon="pi pi-clock"
+                class="p-button-rounded p-button-warning p-button-text"> <span style="marginLeft: 8px">Pendientes</span>
+              </button>
+              <button (click)="listarsolicitudesa(1,1)" pButton pRipple type="button" icon="pi pi-check"
+                class="p-button-rounded p-button-success p-button-text"><span style="marginLeft: 8px">Aceptadas</span>
+              </button>
+              <button (click)="listarsolicitudesr(1,1)" pButton pRipple type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-sm p-button-danger p-button-text"><span
+                  style="marginLeft: 8px">Rechazadas</span></button>
+            </div>
+            <p-table [value]="solicitudes" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+              [tableStyle]="{'min-width': '50rem'}"
+              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+              [rowsPerPageOptions]="[10,25,50]">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th style="text-align: center; width:25% ">Solicitante</th>
+                  <th style="text-align: center; width:25%">Nombre de animal</th>
+                  <th style="text-align: center; width:25%">Tipo de pago</th>
+                  <th style="text-align: center; width:25%">Comentario</th>
+                  <th style="text-align: center; width:25%">Fecha</th>
+                  <th style="text-align: center; width:25%">Inspecionar</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-solicitudes>
+                <tr>
+                  <td style="text-align: center;">
+                    <img
+                      [src]="solicitudes.persona.foto ? 'data:image/jpeg;base64,' +solicitudes.persona.foto: '../../../../assets/img/fotonull.png'"
+                      alt="img-avatar" height="70px">
+                    <div>{{solicitudes.persona.nombres}}</div>
+                  </td>
+                  <td style="text-align: center;">{{solicitudes.animal.nombre}}</td>
+                  <td style="text-align: center;">{{solicitudes.tipopago}}</td>
+                  <td>{{solicitudes.comentario}}</td>
+                  <td>{{solicitudes.fecha | date: 'dd/MM/yyyy'}}</td>
+                  <td style="text-align: center;"> <button (click)="perfildePersona(solicitudes.persona?.id_persona)"  pButton pRipple type="button" icon="pi pi-user"
+                      class="p-button-rounded p-button-info p-button-text"></button></td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+      
+          <div id="tabla2">
+            <h2 align="center">Listado de solicitudes Enviadas</h2>
+            <div class="text-align: center; mb-3">
+              <button (click)="listarsolicitudespr(1,1)" pButton pRipple type="button" icon="pi pi-clock"
+                class="p-button-rounded p-button-warning p-button-text"> <span style="marginLeft: 8px">Pendientes</span>
+              </button>
+              <button (click)="listarsolicitudesar(1,1)" pButton pRipple type="button" icon="pi pi-check"
+                class="p-button-rounded p-button-success p-button-text"><span style="marginLeft: 8px">Aceptadas</span>
+              </button>
+              <button (click)="listarsolicitudesrr(1,1)" pButton pRipple type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-sm p-button-danger p-button-text"><span
+                  style="marginLeft: 8px">Rechazadas</span></button>
+      
+            </div>
+            <p-table [value]="solicitudesr" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+              [tableStyle]="{'min-width': '50rem'}"
+              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+              [rowsPerPageOptions]="[10,25,50]">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th style="text-align: center; width:25% ">Animal Solicitado</th>
+                  <th style="text-align: center; width:25%">Nombre del Dueño</th>
+                  <th style="text-align: center; width:25%">Tipo de pago</th>
+                  <th style="text-align: center; width:25%">Comentario</th>
+                  <th style="text-align: center; width:25%">Fecha</th>
+                  <th style="text-align: center; width:25%">Hora</th>
+                  <th style="text-align: center; width:25%">Inspeccionar</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-solicitudesr>
+                <tr>
+                  <td style="text-align: center;">
+                    <img
+                      [src]="solicitudesr.animal.foto ? 'data:image/jpeg;base64,' +solicitudesr.animal.foto: '../../../../assets/img/fotonull.png'"
+                      alt="img-avatar" height="70px">
+                      <div>{{solicitudesr.animal.nombre}}</div>
+                   
+                  </td>
+                  <td style="text-align: center;">{{solicitudesr.persona.nombres}}</td>
+                  <td style="text-align: center;">{{solicitudesr.tipopago}}</td>
+                  <td>{{solicitudesr.comentario}}</td>
+                  <td>{{solicitudesr.fecha | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{solicitudesr.fecha |date:'shortTime' }}</td>
+                  <td style="text-align: center;"> <button (click)="perfildePersona(solicitudesr.persona.id_persona)" pButton pRipple type="button" icon="pi pi-eye"
+                      class="p-button-rounded p-button-info p-button-text"></button></td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>

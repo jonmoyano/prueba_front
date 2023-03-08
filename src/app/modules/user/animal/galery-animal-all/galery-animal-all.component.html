@@ -1,0 +1,96 @@
+<!-- <body>
+
+    <div class="container">
+        <div class="contenedor">
+            <div class="contenedor-cards">
+                <div class="contenedor-card-item" *ngFor="let animal of listALLAnimals"
+                    (click)="irPerfilAnimalProfile(animal.id_animal)">
+                    
+                    <div class="contenedor-card-item-wrapper" *ngIf="animal.persona.id_persona != id_persona_loggin">
+                        <img [src]="animal.foto ? 'data:image/jpeg;base64,' + animal.foto : '../../../../assets/img/fotonull.png'"
+                            alt="" height="" [style.min-height.px]="250" [style.max-height.px]="250">
+
+
+                        <div class="contenedor-info">
+                            <div class="info">
+                                <p class="titulo">{{animal.nombre}}</p>
+                                <span class="categoria">{{animal.raAnimal.razaAnimal.nombretipo}} -
+                                    {{animal.raAnimal.nombreraza}}</span>
+                            </div>
+                            <div class="fondo"></div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</body> -->
+
+
+
+<!-- CPDIGO DE PRUEBA -->
+<!-- <article class="card" *ngFor="let animal of listALLAnimals">
+    <img class="card__background" [src]="animal.foto ? 'data:image/jpeg;base64,' + animal.foto : '../../../../assets/img/fotonull.png'"
+        alt="Photo of Cartagena's cathedral at the background and some colonial style houses" width="1920"
+        height="2193" />
+    <div class="card__content | flow">
+        <div class="card__content--container | flow">
+            <h2 class="card__title">Colombia</h2>
+            <p class="card__description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum in
+                labore laudantium deserunt fugiat numquam.
+            </p>
+        </div>
+        <button class="card__button">Read more</button>
+    </div>
+</article> -->
+
+
+<!-- <div class="container">
+    <div class="card-container">
+
+        <div class="card" *ngFor="let animal of listALLAnimals">
+            <figure class="card__thumb">
+                <img [src]="animal.foto ? 'data:image/jpeg;base64,' + animal.foto : '../../../../assets/img/fotonull.png'"
+                    alt="Picture by Kyle Cottrell" class="card__image" height="300px">
+                <figcaption class="card__caption">
+                    <h2 class="card__title">NASA Has Found Hundreds Of Potential New Planets</h2>
+                    <p class="card__snippet">NASA released a list of 219 new “planet candidates” discovered by the
+                        Kepler space telescope, 10 of which are similar to Earth’s size and may be habitable by other
+                        life forms.</p>
+                    <a href="" class="card__button">Ver perfil</a>
+                </figcaption>
+            </figure>
+        </div>
+
+
+
+    </div>
+</div> -->
+
+
+
+
+
+
+<div class="container1" >
+	<div class="card" *ngFor="let animal of listALLAnimals">
+		<figure class="card__thumb" >
+            <img [src]="animal.foto ? 'data:image/jpeg;base64,' + animal.foto : '../../../../assets/img/fotonull.png'"
+            alt="Picture by Kyle Cottrell" class="card__image" height="300px" width="299px" style="border-radius: 7px;">
+			<figcaption class="card__caption">
+				<h2 class="card__title">Animalito {{animal.nombre}} <br>{{animal.raAnimal.razaAnimal.nombretipo}} - {{animal.raAnimal.nombreraza}}</h2>
+				<p class="card__snippet">El animalito {{animal.nombre}}, con género {{animal.genero}} es de color {{animal.color}} y tiene {{animal.edad}} Años.</p>
+				<a (click)="irPerfilAnimalProfile(animal.id_animal)" class="card__button">Ver perfil</a>
+			</figcaption>
+		</figure>
+	</div>
+
+
+
+</div>
+

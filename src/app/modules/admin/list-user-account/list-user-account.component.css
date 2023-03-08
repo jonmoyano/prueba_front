@@ -1,0 +1,16 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .product-badge {
+    display: inline-block; /* Asegura que el elemento tenga ancho y altura */
+    padding: 0.5em; /* Agrega espacio entre el contenido y el borde */
+    background: linear-gradient(to right, #ffcc00, #ff6600); /* Crea un degradado de color de fondo */
+    border-radius: 5px; /* Da a la caja esquinas redondeadas */
+    color: white; /* Establece el color del texto a blanco */
+    font-weight: bold; /* Hace que el texto sea más grueso */
+  }
+  
+  

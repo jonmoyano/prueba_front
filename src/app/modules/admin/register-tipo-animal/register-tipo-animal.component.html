@@ -1,0 +1,95 @@
+<!---->
+
+<div class="container mt-4">
+    <div class="card">
+        <br>
+        <h2 align="center">TIPOS DE MASCOTAS</h2>
+        <div class="mb-3">
+            <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()"
+                styleClass="p-button-text"></p-button>
+            <p-button type="button" icon="pi pi-refresh" (click)="resetTemplate()"
+                styleClass="p-button-text"></p-button>
+            <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()"
+                styleClass="p-button-text"></p-button>
+            <button pripple="" class="p-ripple p-element p-button-text p-button p-component p-button-icon-only"
+                type="button" (click)="showMaximizableDialog()">
+                <span class="pi pi-plus p-button-icon ng-star-inserted" aria-hidden="true"></span>
+                <span class="p-ink"></span>
+            </button>
+        </div>
+        <p-table [value]="tipos" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+            [tableStyle]="{'min-width': '50rem'}"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[10,25,50]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width:25%">Id</th>
+                    <th style="width:25%">Nombre</th>
+                    <th style="width:25%">Descripción</th>
+                    <th style="width:25%;">Foto</th>
+                   
+                    <th></th>
+                    <th></th>
+                    <th style="width:25%">Reporte</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-tipo>
+                <tr>
+                    <td>{{tipo.id_tipoanimal}}</td>
+                    <td>{{tipo.nombretipo}}</td>
+                    <td>{{tipo.descripcion}}</td>
+
+
+                    <td><img [src]="'data:image/jpeg;base64,' + tipo.foto" alt="" width="50px" height="50px"
+                            class="rounded-circle"></td>
+                    
+                    <td>
+                        <i class="pi pi-user-edit p-button" style=" font-size: 2rem;
+                                color: blue;
+                                background-color: whitesmoke;
+                                border: none;" (click)="showMaximizableDialog()" (click)="editTipo(tipo)"></i>
+                    </td>
+                    <td>
+                        <i class="pi pi-trash p-button" style="font-size: 2rem;
+                                color: red;
+                                background-color: whitesmoke;
+                                border: none;" (click)="delete(tipo.id_tipoanimal)"></i>
+                    </td>
+                    <td><p-button type="button" icon="pi pi-print" styleClass="p-button-text" (click)="getReportOfUserRequest(tipo.id_tipoanimal, tipo.nombretipo)"></p-button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+
+<!--    inicio: template form - register/edit - tipoAnimal  -->
+
+<p-dialog header="Formulario: Tipo" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
+    <form FormGroup="form" (ngSubmit)="create()" ngNativeValidate>
+        <div class="mb-3">
+            <label for="text" class="form-label">Nombre</label>
+            <input type="text" class="form-control" [(ngModel)]="tipo.nombretipo" name="nombretipo" required
+                id="txt_nombre">
+        </div>
+        <div class="mb-3">
+            <label for="text" class="form-label">Descripción</label>
+            <input type="text" class="form-control" [(ngModel)]="tipo.descripcion" name="descripcion" required
+                id="txt_descripcion">
+        </div>
+        <div class="col-sm-12">
+            <label for="foto">Seleccionar foto</label>
+            <input type="file" (change)="loadPictureTypeAnimal($event)" placeholder="Foto" name="foto"
+                class="form-control mb-3" required id="txt_foto">
+                      
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <button class="btn btn-primary" role="button">Registrar</button>
+            </div>
+        </div>
+    </form>
+</p-dialog>
+
+<!--    fin: template form - register/edit - tipoAnimal  -->

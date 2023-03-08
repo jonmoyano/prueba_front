@@ -1,0 +1,147 @@
+<section class="seccion-perfil-animal mb-5">
+    <div class="perfil-animal-header">
+        <div class="perfil-animal-portada">
+            <div align="right">
+                <p style="font-family: cursive ; font-size: 250%; color: black; ">
+                    <img src="../../assets/img/logo.png" alt="" width="250px" height="250px">
+
+                </p>
+            </div>
+            <div class="perfil-animal-avatar">
+                <img [src]="animal.foto ? 'data:image/jpeg;base64,' +animal.foto : '../../../../assets/img/fotonull.png'"
+                    alt="img-avatar" height="165px">
+                <input type="file" #fileInput style="display: none;" accept="image/jpeg, image/jpg, image/png"
+                    (change)="($event)">
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="perfil-animal-body">
+
+        <div class="perfil-animal-bio">
+            <h3 class="nombre"></h3>
+            <p style="font-family: cursive ; font-size: 100%; color: rgb(0, 0, 0); ">
+                Cada emparejamiento puede ir mejorando la genética para asi lograr tener un espécimen ideal
+            </p>
+        </div>
+        <div class="perfil-animal-footer">
+
+
+
+            <div class="perfil-animal-footer">
+
+
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-paw"></i>Nombre: {{animal.nombre}} </li>
+                    <li><i class="icono fas fa-tint"></i>Color: {{animal.color}} </li>
+                    <li><i class="icono fa-solid fa-venus-mars"></i>Género: {{animal.genero}} </li>
+                    <li><i class="icono fa-solid fa-calendar-days"></i>Edad: {{animal.edad}} </li>
+                    <li><i class="icono fa-solid fa-weight-scale"></i>Peso: {{animal.peso}} </li>
+                    <li><i class="icono fa-solid fa-earth-americas"></i>Raza: {{animal.raAnimal?.nombreraza}} </li>
+                    <li><i class="icono fa-solid fa-user"
+                            (click)="perfildePersona(animal.persona?.id_persona)"></i>Dueño: {{animal.persona?.nombres}}
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="btn" (click)="mostrarPDF()">Mostrar Ficha Médica</button>
+
+            <button type="button" *ngIf="animal.disponibilidad == false" class="btn" style="background-color: red;"
+                (click)="showMessageViewNodisponible()">No disponible</button>
+            <button type="button" *ngIf="animal.disponibilidad == true" class="btn"
+                (click)="showModalDialog()">Solicitar</button>
+        </div>
+    </div>
+</section>
+
+
+
+<p-dialog [(visible)]="displayModal" [modal]="true" [style]="{width: '60vw' }" [draggable]="false" [resizable]="false"
+    class="pdi">
+
+    <!-- <div style="align-items: center;"> -->
+    <div class="">
+        <div class="product-grid-item card" style="align-items: center;">
+
+
+            <section class="cantact_info">
+                <section class="info_title">
+                    <span><i class="pi pi-envelope" style="font-size: 2rem"></i></span>
+                    <h2>FORMULARIO<br>DE SOLICITUD</h2>
+                </section>
+                <section class="info_items">
+                    <div class="">
+                        <div class="product-grid-item card">
+                            <div class="product-grid-item card" style="background: #4090ec3a">
+                                <div class="product-grid-item-top">
+                                    <div>
+                                        <i class="pi pi-tag product-category-icon"></i>
+                                        <span class="product-category">{{animal.nombre}}</span>
+                                    </div>
+                                </div>
+                                <div class="product-grid-item-content">
+                                    <img [src]="animal.foto ? 'data:image/jpeg;base64,' + animal.foto : '../../../../assets/img/fotonull.png'"
+                                        alt="" width="200px" height="200px">
+                                    <!-- <div class="product-name">{{animal.nombre}}</div> -->
+                                    <div class="product-description">{{animal.description}}</div>
+                                    <div style="display: flex;
+                                    justify-content: center;
+                                    align-items: center;">
+                                    <p-rating [ngModel]="animal.num_soli" [readonly]="true" [cancel]="false"></p-rating>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="info_items"><span><br></span></section>
+            </section>
+            <form FormGroup="form" ngNativeValidate>
+                <hr>
+                <div class="form_footer">
+
+                    <div class="p-fluid" style="padding: 1em;">
+
+                        <div class="mb-4">
+                            <label class="form-label" for="categoria">Método de pago</label>
+                            <select (change)="onRazaAnimalChange($event)" class="form-select" name="categoria" required>
+                                <option [defaultSelected]>Seleccione tipo de pago</option>
+                                <option value="Efectivo">Solicitar al animal por
+                                    ${{animal?.preciosolicitud.split('-')[0]}}</option>
+                                <option value="Trueque">Solicitar al animal a cambio de
+                                    {{animal?.preciosolicitud.split('-')[1]}} cria/s.</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="textarea">Comentario: </label>
+                            <textarea class="form-control" inputId="textarea" rows="3" style="resize: none;" cols="30"
+                                pInputTextarea required id="txtAreaComentario" [(ngModel)]="solicitud.comentario"
+                                name="comentario"></textarea>
+                        </div>
+
+                        <div class="buttons_form">
+                            <button class="bntform" type="button" id="btn_cancel"
+                                (click)="unShowModalDialog()">Cancelar</button>
+                            <button class="bntform" type="submit" id="btn_send" label="Ok"
+                                (click)="showSwal()">Enviar</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</p-dialog>
+
+
+<!-- Para el dialogo -->
+
+<p-toast></p-toast>
